@@ -32,10 +32,11 @@ class BankAccount:
   def deposit(self, amount):
      self.balance += amount
      if amount <=0:
-       print("You have deposited {} to your account". format(amount))
+       print("You cannot deposit zero amount from your account". format(amount))
      else:
        self.balance += amount
-       print("No money deposited")
+       self.deposit.append(amount)
+       print("You have deposited {} money to {}".format (amount, self.account_name()))
 
 class BankAccount:
   def __init__(self,first_name,last_name,bank,phone_number):
@@ -53,38 +54,50 @@ class BankAccount:
   def phone_number(self, phone_number):
     contact = "Your phone_number {}".format(phone_number)
     return phone_number
-
-
-  def get_balance(self): 
-    return "This {} is the current balance for {}". format(self.balance, self.account_name()) 
-
-  #def deposit(self, amount):
-   # self.append first_name = first_name
-    #self.append last_name = last_name
-    g#et_balance[]
-
-  def deposit_statement(self, amount):
-    deposit = self.deposit.append(amount)
-    if amount >= 0:
-      print("You can't deposit {} to your account".format(amount))
+  def deposit(self, amount):
+    
+    if amount <= 0:
+      print("You can't deposit zero to your account".format(amount))
     else:
       self.balance += amount
-      print("You have deposited {} to your account".format(amount))
+      self.deposits.append(amount)
+      print("You have deposited {} to your account".format(amount, self.account_name()))
 
-  def withdraw_statement(self, amount):
-    withdraw = self.withdraw.append(amount)
-    if amount <= 0:
-      print("You can't withdraw {} from your account".format(amount))
+  def withdraw(self, amount): 
+    if amount == 0:
+      print("You can't withdraw zero from your account".format(amount))
+    elif amount > self.balance:
+      print("You dont have enough balance")
     else:
       self.balance -= amount
-      print("You have withdrawn {} from your account".format(amount))
-
+      self.withdraw.append(amount)
+      print("You have withdrawn {} from your account".format(amount,,self.account_name()))
+  def get_balance(self):
+    return"The balance for {} is {}".format(amount, self.balance)
+  def show_deposit_statement(self):
+    for deposit in sel.deposits:
+      print(deposit)
+  def show_withdrawals_statement(self):
+    for withdrawal in self.withdrawals:
+      print(withdrawal)
   def get_loan(self, amount):
-    loan = ("{} your loan amount is {}".format(self.first_name, self.amount)
-     
- # def pay_loan(self, amount):
-   # loan = ("{} your have paid loan of {} amount".format(self.first_name, self.amount))
-
+    if amount <= 0:
+      print("You cannot get loan of that amount")
+    else:
+      self.loan = amount
+      print("You have been given loan of {}".format(amount))
+    
+ def pay_loan(self, amount):
+    if amount <= 0:
+      print("You cannot pay with that amount")
+    elif self.loan == 0:
+      print("You dont have a loan ata the moment")
+    elif amount > self.loan:
+      print("Your loan is paid amount")
+    else:
+      self.loan = amount
+      print("You have paid your loan of {}".format(amout))
+   
 
 
 
