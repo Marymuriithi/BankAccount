@@ -1,3 +1,4 @@
+from datetime import datetime
 class BankAccount:
   bank = "KCB"
   
@@ -37,7 +38,7 @@ class BankAccount:
        self.balance += amount
        self.deposit.append(amount)
        print("You have deposited {} money to {}".format (amount, self.account_name()))
-
+from datetime import datetime
 class BankAccount:
   def __init__(self,first_name,last_name,bank,phone_number):
 
@@ -50,11 +51,27 @@ class BankAccount:
     self.withdraw_update = []
     self.loan = amount
     self.pay_loan = amount
+    self.time=datetime.now()
+
+
+
+
 
   def phone_number(self, phone_number):
     contact = "Your phone_number {}".format(phone_number)
     return phone_number
   def deposit(self, amount):
+    time = datetime.now()
+    date_time = time.strftime("%m/%d/%Y, %H:%M:%S")
+    deposit = {"time": "time", "amount" : "amount"}
+
+    try:
+      amount + 0
+    except TypeError:
+
+      print("You must enter amount in figures")
+    return
+    print("Hello you deposited {} amount at {}".format(amount, get_time ))
     
     if amount <= 0:
       print("You can't deposit zero to your account".format(amount))
@@ -63,7 +80,19 @@ class BankAccount:
       self.deposits.append(amount)
       print("You have deposited {} to your account".format(amount, self.account_name()))
 
-  def withdraw(self, amount): 
+  def withdraw(self, amount):
+    time = datetime.now()
+    date_time = time.strftime("%m/%d/%Y, %H:%M:%S")
+    withdraw = {"time": "time", "amount" : "amount"}
+
+    try:
+      amount + 1
+    except TypeError:
+      print("You dont have enough money to withdraw")
+      return
+      print("Hello {} you have withdrawn {} amount from your account at {} on {}".format(self.account_name(),amount, get_time))
+
+
     if amount == 0:
       print("You can't withdraw zero from your account".format(amount))
     elif amount > self.balance:
@@ -71,70 +100,55 @@ class BankAccount:
     else:
       self.balance -= amount
       self.withdraw.append(amount)
-      print("You have withdrawn {} from your account".format(amount,,self.account_name()))
-  def get_balance(self):
-    return"The balance for {} is {}".format(amount, self.balance)
+      print("You have withdrawn {} from your account".format(amount,self.account_name()))
+  def get_balance(self): 
+    time = datetime.now()
+    date_time = time.strftime("%m/%d/%Y, %H:%M:%S")
+    get_balance = {"time": "time", "amount" : "amount"}
+    return"The balance for {} is {} amount at {}".format(self.account_name(),amount,get_time )
   def show_deposit_statement(self):
-    for deposit in sel.deposits:
-      print(deposit)
+    for deposit in self.deposits:
+      time = date_time.now()
+      date_time = time.strftime("%m/%d/%Y, %H:%M:%S")
+      show_deposit_statement = {"time": "time", "amount" : "amount"}
+      print(deposit,get_time)
   def show_withdrawals_statement(self):
     for withdrawal in self.withdrawals:
-      print(withdrawal)
+      time = date_time.now()
+      date_time = time.strftime("%m/%d/%Y, %H:%M:%S")
+      show_withdrawals_statement = {"time": "time", "amount" : "amount"}
+      print(withdrawal, get_time)
   def get_loan(self, amount):
+    time = date_time.now()
+    date_time = time.strftime("%m/%d/%Y, %H:%M:%S")
+    get_loan = {"time": "time", "amount" : "amount"}
     if amount <= 0:
-      print("You cannot get loan of that amount")
+      print("You cannot get loan of {} amount at {}".format(amount,get_time))
     else:
       self.loan = amount
-      print("You have been given loan of {}".format(amount))
+      print("You have been given loan of {} at {}".format(amount, get_time))
     
- def pay_loan(self, amount):
+  def pay_loan(self, amount): 
+    time = date_time.now()
+    date_time = time.strftime("%m/%d/%Y, %H:%M:%S")
+    
+    get_loan = {"time": "time", "amount" : "amount"}
+    try:
+     amount +1
+    except TypeError:
+      print("Enter amount in figures")
+      return
     if amount <= 0:
       print("You cannot pay with that amount")
     elif self.loan == 0:
-      print("You dont have a loan ata the moment")
+      print("You dont have a loan at the moment")
     elif amount > self.loan:
-      print("Your loan is paid amount")
+      print("Your loan is paid amount at")
     else:
       self.loan = amount
-      print("You have paid your loan of {}".format(amout))
+      print("You have paid your loan of {} at{}".format(amout, get_time))
    
 
 
 
- #print(acc1.account_name())
- #print(acc2.account_name())   
-
-
-
-#name = BankAccount("Lucy", "Wangui")
-#name = BankAccount("Mark", "Maina")
-
-#print(acc1.account_name())
-#print(acc2.account_name())
-
-#acc1.withdraw(500)
-#acc2.withdraw(400)
-#acc1.deposit(5000)
-#acc2.deposit(489)
-
-#acc1.phone_number(+2543678898)
-#acc2.phone_number(+2546784367)
-
-
-#print(acc1.get_balance())
-#print(acc2.get_balance())
-
-#print(acc1.account_name())
-#print(acc2.account_name())
-
-#acc1.deposit(15000)
-#acc2.deposit(3000)
-#acc1.withdraw(700)
-#acc2.withdraw(500)
-
-#print(acc1.get_loan(250))
-#print(acc2.pay_loan(400))
-#print("-------")
-
-
-    
+ 
